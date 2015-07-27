@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
-  
-  namespace :admin do 
+
+  namespace :admin do
     resources :products
-    resources :orders do 
-      member do 
+    resources :orders do
+      member do
         post :cancel
         post :ship
         post :shipped
@@ -14,8 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products do 
-    member do 
+  resources :products do
+    member do
       post :add_to_cart
     end
   end
@@ -29,16 +29,17 @@ Rails.application.routes.draw do
     resources :items, :controller => "cart_items"
   end
 
-  resources :orders do 
-    member do 
+  resources :orders do
+    member do
       get :pay_with_credit_card
+      post :allpay_notify
     end
   end
 
-  namespace :account do 
+  namespace :account do
     resources :orders
   end
 
   root :to => "products#index"
-  
+
 end
