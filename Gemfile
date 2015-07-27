@@ -46,6 +46,9 @@ group :development do
   gem "annotate"
 end
 
+gem "activemerchant",         "~> 1.43.1"
+gem "active_merchant_allpay", ">=0.1.2"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
